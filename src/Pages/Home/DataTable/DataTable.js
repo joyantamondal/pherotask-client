@@ -6,7 +6,7 @@ const DataTable = (props) => {
     const [tableDatas, setTableDatas] = useState([]);
 
     useEffect(()=>{
-        const url = `http://localhost:5000/billing-list`;
+        const url = `https://socialist-sorry-18905.herokuapp.com/billing-list`;
         fetch(url)
         .then(res=>res.json())
         .then(data=>setTableDatas(data))

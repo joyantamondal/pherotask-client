@@ -8,7 +8,7 @@ const AddBillModal = ({ openBilling, handleBillingClose, reset }) => {
   const { register,formState: { errors }, handleSubmit,} = useForm();
 
     const onSubmit = (data) =>{
-    axios.post('http://localhost:5000/add-billing', data)
+    axios.post('https://socialist-sorry-18905.herokuapp.com/add-billing', data)
     .then(res=>{
     alert('Bill Added Successfully');
     reset();
