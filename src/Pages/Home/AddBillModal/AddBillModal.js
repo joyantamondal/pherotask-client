@@ -3,15 +3,15 @@ import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./AddBillingModal.css";
 
-const AddBillModal = ({ openBilling, handleBillingClose }) => {
+const AddBillModal = ({ openBilling, handleBillingClose, reset }) => {
   // react hook form
   const { register,formState: { errors }, handleSubmit,} = useForm();
 
     const onSubmit = (data) =>{
-        console.log(data);
     axios.post('http://localhost:5000/add-billing', data)
     .then(res=>{
-    console.log(res);
+    alert('Bill Added Successfully');
+    reset();
     })
     }
     

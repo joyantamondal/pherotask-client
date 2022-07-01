@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
-import data from "../../../mock-data.json";
+// import data from "../../../mock-data.json";
 
-const DataTable = () => {
-    const [tableDatas, setTableDatas] = useState(data);
+const DataTable = (props) => {
+    const [tableDatas, setTableDatas] = useState([]);
+
+    useEffect(()=>{
+        const url = `http://localhost:5000/billing-list`;
+        fetch(url)
+        .then(res=>res.json())
+        .then(data=>setTableDatas(data))
+    
+    },[])
     return (
         <div>
             <Container>
@@ -21,7 +29,7 @@ const DataTable = () => {
           <tbody>
             {tableDatas.map((tableData) => (
                <tr>
-               <td className="text-white">{tableData.id}</td>
+               <td className="text-white">{tableData._id}</td> 
                <td className="text-white">{tableData.fullName}</td>
                <td className="text-white">{tableData.email}</td>
                <td className="text-white">{tableData.phone}</td>
