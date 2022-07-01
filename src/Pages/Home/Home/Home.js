@@ -1,9 +1,14 @@
-import NavTable from "../NavTable/NavTable";
+import DataTable from "../DataTable/DataTable";
+import NavBar from "../NavBar/NavBar";
+import SearchBar from "../SearchBar/SearchBar";
+
 
 const Home = () => {
     return (
         <div>
-            <NavTable></NavTable>
+            <NavBar></NavBar>
+            <SearchBar></SearchBar>
+            <DataTable></DataTable>
         </div>
     );
 };
